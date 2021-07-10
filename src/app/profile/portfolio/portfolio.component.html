@@ -1,0 +1,51 @@
+<div class="section color" id="portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 ml-auto mr-auto">
+        <div class="h4 text-center mb-4 title color2">Projects</div>
+        <div class="nav-align-center">
+          <ul class="nav nav-pills nav-pills-primary" role="tablist">
+            <li class="nav-item">
+              <a class="btn btn-default btn-round btn-lg btn-icon" href="https://github.com/miguelpinto128"
+                target="_blank" rel="tooltip" title="Projects imported with GitHub's API">
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="tab-content gallery mt-5 ">
+      <div class="tab-pane active" id="web-development">
+        <div class="ml-auto mr-auto ">
+          <div class="row ">
+            <div class="col-md-6 " *ngFor="let repo of repos | paginate: { itemsPerPage: 2, currentPage: p }">
+              <div class="card align color1 radius card">
+                <div class="">
+                  <a href="https://raw.githubusercontent.com/miguelpinto128/{{repo.name}}/main/image.jpg"
+                    target="_blank">
+                    <img src="https://raw.githubusercontent.com/miguelpinto128/{{repo.name}}/main/image.jpg"
+                      class="card-img-top divImage " alt="..." target="_blank">
+                  </a>
+                </div>
+                <div class="card-body color1 size">
+                  <h2 class="card-title">{{ repo.name }}</h2>
+                  <h6 class="card-text">{{ repo.description }}</h6>
+                  <p>{{ repo.created_at | date: "dd/MM/yyyy" }}</p>
+                  <a href="{{ repo.html_url }}" class="btn btn-primary radius" target="_blank">See on GitHub</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="margin">
+    <pagination-controls (pageChange)="p = $event" maxSize="0" previousLabel="" nextLabel="">
+    </pagination-controls>
+
+    
+  </div>
+</div>
