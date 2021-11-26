@@ -22,7 +22,6 @@ export class PortfolioComponent implements OnInit {
 
   ngOnInit(): void {
     this.repoService.getRepo(1).subscribe((resp) => {
-      debugger;
       this.loadRepos(resp);
     });
   }

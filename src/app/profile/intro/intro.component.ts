@@ -15,7 +15,6 @@ export class IntroComponent implements OnInit {
 
   ngOnInit(): void {
     this.repoService.getRepo(1).subscribe((resp) => {
-      debugger;
       this.loadRepos(resp);
     });
   }
